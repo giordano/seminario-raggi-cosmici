@@ -5,9 +5,13 @@
 \usepackage[utf8]{inputenc}
 \usepackage[italian]{babel}
 
+\usepackage[beamer]{hf-tikz}
+\usepackage[autostyle=true]{csquotes}
+\usepackage[backend=biber]{biblatex}
 \usepackage{booktabs,particlessymb,siunitx}
 \usepackage[font=scriptsize,labelformat=empty]{caption}
 
+\definecolor{darkblue}{rgb}{0,0,0.8}
 \DeclareSIUnit\parsec{pc}
 \DeclareSIUnit\clight{\text{\ensuremath{c}}}
 \sisetup{per-mode=symbol,
@@ -16,15 +20,22 @@
   output-product=\cdot,
   separate-uncertainty=true
 }
+\addbibresource{bibliografia.bib}
 
+\DeclareMathOperator{\e}{\mathrm{e}}
 \renewcommand{\phi}{\varphi}
 \renewcommand{\epsilon}{\varepsilon}
+
+% wordaround to make hf-tikz keys works
+\pgfkeys{/tikz/.cd,
+  set fill color/.code={\renewcommand{\fcol}{#1}},
+  set border color/.code={\renewcommand{\bcol}{#1}}}
 
 \newcommand*{\dd}{\mathop{}\!\textup{d}} % Operatore differenziale \dd
 % Derivata totale: \toder[ordine]{funzione}{variabile}
 \newcommand*{\toder}[3][]{\frac{{\dd^{#1}}#2}{\dd {#3}^{#1}}}
 
-\title{Raggi cosmici}
+\title{Recenti progressi sullo studio dei raggi cosmici}
 \author{Mosè Giordano}
 \date{XX aprile 2013}
 \institute[UniSalento]{Università del Salento}
@@ -56,6 +67,41 @@
 
 \end{frame}
 
+\begin{frame}
+  \frametitle{Raggi gamma}
+  Possibili sorgenti di raggi gamma nelle SNR
+  \begin{itemize}[<+->]
+  \item decadimento di \PGpz:
+    \begin{equation*}
+      \text{p} + \text{p} \to \PGpz + \text{X}, \quad \PGpz \to 2\PGg
+    \end{equation*}
+  \item bremsstrahlung
+  \item effetto Compton inverso
+  \end{itemize}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Positroni}
+  % Discussione teorica presa da doi:10.1038/nature07942
+  Una piccola parte dei raggi cosmici è costituita da antiparticelle, le quali
+  sono prodotte dall'interazione fra i nuclei presenti nei raggi cosmici e gli
+  atomi del mezzo interstellare (\alert{sorgente secondaria}).
+
+  I positroni possono anche essere prodotti in pulsar o microquasars attraverso
+  l'annichilazione di materia oscura (\alert{sorgente primaria}).
+
+  Si ritiene che i protoni siano
+  \alert{prodotti soprattutto da sorgenti secondarie}.
+
+  Prendendo in considerazione le perdite di energia dei raggi cosmici primari,
+  ci si aspetta che gli elettroni abbiano uno spettro più ``duro'' rispetto ai
+  positroni, se questi sono soprattutto di origine secondaria.  Se quest'ultima
+  ipotesi fosse valida,
+  \alert{la frazione di positroni dovrebbe diminuire all'aumentare
+    dell'energia}.
+\end{frame}
+
 \section[Fermi]{Fermi Gamma-ray Space Telescope}
 
 \begin{frame}
@@ -67,16 +113,18 @@
     \includegraphics[width=0.5\columnwidth]{glast.jpg}
   \end{figure}
   Osservatorio per lo studio dei raggi gamma (da \SI{8}{\kilo\electronvolt} fino
-  a oltre \SI{300}{\giga\electronvolt}) emessi da corpi celesti.  Obiettivi:
-  dell'esperimento
+  a oltre \SI{300}{\giga\electronvolt}) emessi da corpi celesti.  Obiettivi
+  dell'esperimento:
   \begin{itemize}
-  \item comprensione meccanismo di accelerazione particelle in AGN, pulsar e SNR
-  \item studio sorgenti gamma non identificate e radiazione gamma diffusa
-    galattica ed extra-galattica
-  \item studio emissione ad altissima energia nei GRB
-  \item rivelazione indiretta della materia oscura, attraverso suo decadimento o
-    annichilazione in fotoni o elettroni e positroni
-  \item osservazione evaporazione di MBH dalla presunta traccia di lampi gamma
+  \item comprensione \alert{meccanismo di accelerazione particelle} in AGN,
+    pulsar e SNR
+  \item studio \alert{sorgenti gamma non identificate} e
+    \alert{radiazione gamma diffusa} galattica ed extra-galattica
+  \item studio \alert{emissione ad altissima energia} nei GRB
+  \item rivelazione indiretta della \alert{materia oscura}, attraverso suo
+    decadimento o annichilazione in fotoni o elettroni e positroni
+  \item osservazione \alert{evaporazione di MBH} dalla presunta traccia di lampi
+    gamma
   \end{itemize}
   È in orbita a \SI{550}{\kilo\metre} d'altezza dall'11 giugno 2008
 \end{frame}
@@ -88,10 +136,11 @@
   \begin{columns}
     \begin{column}{0.4\columnwidth}
       \begin{itemize}
-      \item Large Area Telescope (LAT), sensibile a singoli raggi gamma con
-        energia tra \SI{20}{\mega\electronvolt} e \SI{300}{\giga\electronvolt}
-      \item Gamma-Ray Burst Monitor (GBM), studio di fenomeni transienti (GRB e
-        brillamenti) a energie relativamente più basse (tra
+      \item \alert{Large Area Telescope} (LAT), sensibile a singoli raggi gamma
+        con energia tra \SI{20}{\mega\electronvolt} e
+        \SI{300}{\giga\electronvolt}
+      \item \alert{Gamma-Ray Burst Monitor} (GBM), studio di fenomeni transienti
+        (GRB e brillamenti) a energie relativamente più basse (tra
         \SI{8}{\kilo\electronvolt} e \SI{40}{\mega\electronvolt})
       \end{itemize}
     \end{column}
@@ -127,12 +176,12 @@
       \SI{1.5}{\kilo \parsec}) e W44 (destra, \SI{2.9}{\kilo \parsec})
       nell'intervallo di energia da \SI{60}{\mega\electronvolt} a
       \SI{2}{\giga\electronvolt}.  Quadrati e croci indicano sorgenti gamma
-      vicine, i rombi sorgenti precedentemente sconosciute.}
+      vicine, i rombi sorgenti precedentemente sconosciute}
   \end{figure}
 \end{frame}
 
 \begin{frame}
-  \frametitle{Fermi: analisi dei dati}
+  \frametitle{Fermi-LAT: analisi dei dati}
   \begin{figure}
     \centering
     \includegraphics[width=0.5\columnwidth]{1231160fig2a}
@@ -142,7 +191,7 @@
 \end{frame}
 
 \begin{frame}
-  \frametitle{Fermi: analisi dei dati (cont.)}
+  \frametitle{Fermi-LAT: analisi dei dati (cont.)}
   Power law (PL):
   \begin{equation*}
     F(\epsilon) = K
@@ -175,7 +224,7 @@
         (\si{\mega \electronvolt}) & $TS$ \\
         \midrule
         IC~443 & & & & & \\
-        PL & $11.7 \pm 0.2) \times 10^{-10}$ & $1.76\pm 0.02$
+        PL & $(11.7 \pm 0.2) \times 10^{-10}$ & $1.76\pm 0.02$
         & $\cdots$ & $\cdots$  &  21651 \\
         BPL & $(11.9 \pm 0.6) \times 10^{-10}$ & $0.57\pm 0.25$
         & $1.95^{+0.02}_{-0.02}$ & $245^{+16}_{-15}$  &  22010\\
@@ -191,17 +240,17 @@
 \end{frame}
 
 \begin{frame}
-  \frametitle{Fermi: analisi dei dati (cont.)}
+  \frametitle{Fermi-LAT: analisi dei dati (cont.)}
   \begin{figure}
     \centering
     \includegraphics[width=.8\columnwidth]{1231160fig3}
     \caption{Spettro dei raggi gamma e dei protoni progenitori, derivato dallo
-      spettro dei raggi gamma.}
+      spettro dei raggi gamma}
   \end{figure}
 \end{frame}
 
 \begin{frame}
-  \frametitle{Fermi: analisi dei dati (cont.)}
+  \frametitle{Fermi-LAT: analisi dei dati (cont.)}
   Lo spettro dei supposti protoni progenitori è stato derivato da una BPL della
   forma
   \begin{equation*}
@@ -219,23 +268,142 @@
   $p_{\textup{br}} = \SI{22(8)}{\giga \electronvolt \per \clight}$.
 \end{frame}
 
-\section[AMS]{Alpha Magnetic Spectrometer}
+\begin{frame}
+  \frametitle{Fermi-LAT: conclusioni}
+  Le misure dello spettro dei raggi gamma effettuate da Fermi-LAT mostrano la
+  presenza di una \alert{caratteristica del decadimento di \PGpz} non
+  attribuibile a elettroni relativistici (bremsstrahlung o effetto Compton
+  inverso) e ciò può essere interpretato come una forte
+  \alert{evidenza dell'origine dei raggi cosmici da protoni accelerati} nelle
+  SNR
+\end{frame}
+
+\section[AMS-02]{Alpha Magnetic Spectrometer}
 
 \begin{frame}
-  \frametitle{AMS: l'esperimento}
+  \frametitle{AMS-02: l'esperimento}
   \begin{figure}
     \centering
     \includegraphics[width=0.3\columnwidth]{ams}
   \end{figure}
   È un modulo per condurre esperimenti di fisica delle particelle ad alte
-  energie installato sulla Stazione Spaziale Internazionale.  Obiettivi:
+  energie installato sulla Stazione Spaziale Internazionale.  Obiettivi
+  dell'esperimento:
   \begin{itemize}
-  \item analisi dei raggi cosmici
-  \item studi sulla formazione dell'Universo
-  \item ricerca di evidenze di materia oscura
-  \item studio dell'antimateria
+  \item analisi dei \alert{raggi cosmici}
+  \item studi sulla \alert{formazione dell'Universo}
+  \item ricerca di evidenze di \alert{materia oscura}
+  \item studio dell'\alert{antimateria}
   \end{itemize}
   È stato montato a bordo della ISS il 19 maggio 2011
+\end{frame}
+
+\begin{frame}
+  \frametitle{AMS-02: i rivelatori}
+  \begin{figure}
+    \centering
+    % http://www.ams02.org/it/che-cosa-ams/strumenti/
+    \includegraphics[width=.85\columnwidth]{ams-rivelatori}
+  \end{figure}
+\end{frame}
+
+\begin{frame}
+  \frametitle{AMS-02: i rivelatori (cont.)}
+  \begin{figure}
+    \centering
+    \includegraphics[width=.55\columnwidth]{ams-rivelatori2}
+  \end{figure}
+\end{frame}
+
+\begin{frame}
+  \frametitle{AMS-02: analisi dei dati}
+  \begin{figure}
+    \centering
+    \includegraphics[width=.8\columnwidth]{ams1}
+  \end{figure}
+\end{frame}
+
+\begin{frame}
+  \frametitle{AMS-02: analisi dei dati (cont.)}
+  Fit con un modello minimale.  Flussi di positroni ed elettroni
+  \begin{gather*}
+    \Phi_{\Pep} = \tikzmarkin<2>[set fill color=darkred!10,set border
+    color=darkred]{a}C_{\Pep}E^{-\gamma_{\Pep}}\tikzmarkend{a}
+    + \tikzmarkin<4>[set fill color=darkred!50!darkblue!10,set border
+    color=darkred!50!darkblue]{b}C_{\textup{s}}E^{-\gamma_{\textup{s}}}
+      \e^{-E/E_{\textup{s}}}\tikzmarkend{b} \\
+    \Phi_{\Pem} = \tikzmarkin<3>[set fill color=darkblue!10,set border
+    color=darkblue]{c}C_{\Pem}E^{-\gamma_{\Pem}}\tikzmarkend{c}
+    + \tikzmarkin<4>[set fill color=darkred!50!darkblue!10,set border
+    color=darkred!50!darkblue]{d}C_{\textup{s}}E^{-\gamma_{\textup{s}}}
+      \e^{-E/E_{\textup{s}}}\tikzmarkend{d}
+  \end{gather*}
+\end{frame}
+
+\begin{frame}
+  \frametitle{AMS-02: analisi dei dati (cont.)}
+  \begin{figure}
+    \centering
+    \includegraphics[width=.7\columnwidth]{ams2}
+  \end{figure}
+  $\gamma_{\Pem} - \gamma_{\Pep} = \num{-0.63(3)}$ \\
+  $\gamma_{\Pem} - \gamma_{\textup{s}} = \num{0.66(5)}$ \\
+  $C_{\Pep}/C_{\Pem} = \num{0.091(1)}$ \\
+  $C_{\textup{s}}/C_{\Pem} = \num{0.0078(12)}$ \\
+  $1/E_{\textup{s}} =
+  \SI[per-mode=reciprocal]{0.0013(7)}{\per\giga\electronvolt} \implies
+  E_{\textup{s}} = 760^{+1000}_{-280} \si{\giga \electronvolt}$ \\
+  $\chi^{2}/\text{d.f.} = 28.5/57$
+\end{frame}
+
+\begin{frame}
+  \frametitle{AMS-02: analisi dei dati (cont.)}
+  Fluttuazioni della frazione osservata di positroni
+  \begin{equation*}
+    \frac{r_{\Pe}(b,l)}{\langle r_{\Pe}\rangle} - 1 = \sum_{\ell=0}^{\infty}
+    \sum_{m=-\ell}^{\ell} a_{\ell m}Y_{\ell}^{m}(\pi/2 - b,l)
+  \end{equation*}
+  Coefficienti dello spettro di potenza angolare
+  \begin{equation*}
+    C_{\ell} = \frac{1}{2\ell + 1} \sum_{m=-\ell}^{\ell} \lvert a_{\ell m}
+    \rvert^{2}
+  \end{equation*}
+  Ampiezza dell'anisotropia di dipolo
+  \begin{equation*}
+    \delta = 3 \sqrt{\frac{C_{1}}{4\pi}} \leq 0.036 \qquad (95\% \text{ CL})
+  \end{equation*}
+\end{frame}
+
+\begin{frame}
+  \frametitle{AMS-02: conclusioni}
+  Questi primi dati raccolti da AMS-02 mostrano
+  \begin{enumerate}[<+->]
+  \item fino a \SI{10}{\giga \electronvolt}, una
+    \alert{decrescita della frazione di positroni} all'aumentare dell'energia
+  \item un evidente \alert{aumento della frazione di positroni} da
+    \SIrange[range-phrase={ fino a }]{10}{\sim 250}{\giga \electronvolt}
+  \item che la determinazione del comportamento della frazione di positroni fra
+    \SIrange[range-phrase={ e }]{250}{350}{\giga \electronvolt} richiede una
+    \alert{maggiore statistica}
+  \item che la
+    \alert{pendenza della frazione di positroni in funzione dell'energia
+      diminuisce}
+    di un ordine di grandezza da
+    \SIrange[range-phrase={ a }]{20}{250}{\giga \electronvolt} e non si osserva
+    \alert{nessuna struttura fine}
+  \end{enumerate}
+  \uncover<+->{L'ipotesi di \alert{sola sorgente secondaria non è sufficiente}
+    per spiegare l'aumento della frazione di positroni, è necessario invocare un
+    \alert{altro fenomeno}, di fisica delle particelle o altra sorgente
+    astrofisica.}
+\end{frame}
+
+\section{\refname}
+
+\begin{frame}
+  \frametitle{\refname{}}
+  \nocite{*}
+  \printbibliography{}
 \end{frame}
 \end{document}
 
