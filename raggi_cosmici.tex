@@ -5,9 +5,14 @@
 \usepackage[utf8]{inputenc}
 \usepackage[italian]{babel}
 
-\usepackage[beamer]{hf-tikz}
+\usepackage[beamer,customcolors]{hf-tikz}
 \usepackage[autostyle=true]{csquotes}
 \usepackage[backend=biber]{biblatex}
+% purtroppo sembra che `particlessymb' serva a poco perché `hepparticles' non
+% funziona granché bene in un contesto sans serif (anche se dice che dovrebbe
+% riconoscerlo...), tutte le particelle con simboli latini devo usarle con cose
+% del tipo `\textup', `\mathsf' (in contesto matematico), i comandi di
+% `particlessymb' sono utili solo per le poche particelle con simboli greci
 \usepackage{booktabs,particlessymb,siunitx}
 \usepackage[font=scriptsize,labelformat=empty]{caption}
 
@@ -25,11 +30,6 @@
 \DeclareMathOperator{\e}{\mathrm{e}}
 \renewcommand{\phi}{\varphi}
 \renewcommand{\epsilon}{\varepsilon}
-
-% wordaround to make hf-tikz keys works
-\pgfkeys{/tikz/.cd,
-  set fill color/.code={\renewcommand{\fcol}{#1}},
-  set border color/.code={\renewcommand{\bcol}{#1}}}
 
 \newcommand*{\dd}{\mathop{}\!\textup{d}} % Operatore differenziale \dd
 % Derivata totale: \toder[ordine]{funzione}{variabile}
@@ -57,26 +57,72 @@
   \tableofcontents
 \end{frame}
 
-\section[Intro]{Introduzione}
+\section{Introduzione}
+
+% \subsection{I raggi cosmici}
 
 % Per l'introduzione vedi l'articolo arXiv:1302.3307 e
 % http://arstechnica.com/science/2013/02/supernova-observations-solve-the-mystery-of-cosmic-ray-origins/
 % (questo può essere carino per l'inizio, parla della OMG particle)
 \begin{frame}
-  \frametitle{}
+  \frametitle{Raggi cosmici}
+  I \alert{raggi cosmici} sono \alert{particelle cariche di alta energia} che
+  viaggiano nell'Universo.  Composizione nella parte alta dell'atmosfera (per
+  energia dell'ordine del \si{\giga\electronvolt})
+  \begin{itemize}
+  \item 79\% protoni
+  \item 15\% \PGa
+  \item 5\% nuclei più pesanti
+  \item 1\% elettroni liberi
+  \item \numrange[range-phrase=--]{e-5}{e-4} antiprotoni
+  \end{itemize}
+  Distribuzione sostanzialmente isotropa
+\end{frame}
 
+\begin{frame}
+  \frametitle{Raggi cosmici: lo spettro energetico}
+  \begin{columns}
+    \begin{column}{0.55\columnwidth}
+      Osservazione
+      \begin{itemize}
+      \item diretta (palloni e satelliti) per
+        $E < \SIrange[range-phrase=-]{e12}{e14}{\electronvolt}$
+      \item indiretta (sciami estesi in atmosfera) per
+        $E > \SIrange[range-phrase=-]{e12}{e14}{\electronvolt}$
+      \end{itemize}
+      Flussi
+      \begin{itemize}
+      \item $E \sim \SI{e15}{\electronvolt}$:
+        \SI{1}{particella\per\metre\squared\per anno}
+      \item $E \sim \SI{e18}{\electronvolt}$:
+        \SI{1}{particella\per\kilo\metre\squared\per anno}
+      \item $E \sim \SI{e20}{\electronvolt}$:
+        \SI{1}{particella\per\kilo\metre\squared\per secolo}
+      \end{itemize}
+    \end{column}
+    \begin{column}{0.45\columnwidth}
+      \begin{figure}
+        \centering
+        \includegraphics[width=\columnwidth]{cr-spectrum}
+        \caption{Credit: Sven Lafebre}
+      \end{figure}
+    \end{column}
+  \end{columns}
 \end{frame}
 
 \begin{frame}
   \frametitle{Raggi gamma}
   Possibili sorgenti di raggi gamma nelle SNR
   \begin{itemize}[<+->]
-  \item decadimento di \PGpz:
+  \item adronica, decadimento di \PGpz:
     \begin{equation*}
-      \text{p} + \text{p} \to \PGpz + \text{X}, \quad \PGpz \to 2\PGg
+      \mathsf{p} + \mathsf{p} \to \PGpz + \mathsf{X}, \quad \PGpz \to 2\PGg
     \end{equation*}
-  \item bremsstrahlung
-  \item effetto Compton inverso
+  \item leptonica
+    \begin{itemize}
+    \item bremsstrahlung
+    \item effetto Compton inverso
+    \end{itemize}
   \end{itemize}
 \end{frame}
 
@@ -102,7 +148,9 @@
     dell'energia}.
 \end{frame}
 
-\section[Fermi]{Fermi Gamma-ray Space Telescope}
+\section{Risultati recenti}
+
+\subsection{Fermi Gamma-ray Space Telescope}
 
 \begin{frame}
   \frametitle{Fermi: l'esperimento}
@@ -272,13 +320,13 @@
   \frametitle{Fermi-LAT: conclusioni}
   Le misure dello spettro dei raggi gamma effettuate da Fermi-LAT mostrano la
   presenza di una \alert{caratteristica del decadimento di \PGpz} non
-  attribuibile a elettroni relativistici (bremsstrahlung o effetto Compton
-  inverso) e ciò può essere interpretato come una forte
-  \alert{evidenza dell'origine dei raggi cosmici da protoni accelerati} nelle
-  SNR
+  compatibile con un meccanismo primario di produzione di raggi gamma da
+  elettroni relativistici (bremsstrahlung o effetto Compton inverso).  Ciò può
+  essere interpretato come una
+  \alert{prova diretta della presenza di protoni accelerati} nelle SNR
 \end{frame}
 
-\section[AMS-02]{Alpha Magnetic Spectrometer}
+\subsection{Alpha Magnetic Spectrometer}
 
 \begin{frame}
   \frametitle{AMS-02: l'esperimento}
@@ -391,6 +439,7 @@
     di un ordine di grandezza da
     \SIrange[range-phrase={ a }]{20}{250}{\giga \electronvolt} e non si osserva
     \alert{nessuna struttura fine}
+  \item il rapporto positroni/elettroni è compatibile con l'ipotesi di isotropia
   \end{enumerate}
   \uncover<+->{L'ipotesi di \alert{sola sorgente secondaria non è sufficiente}
     per spiegare l'aumento della frazione di positroni, è necessario invocare un
