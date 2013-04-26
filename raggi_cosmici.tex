@@ -1,4 +1,12 @@
 \documentclass[10pt]{beamer}
+\usetheme{Madrid}
+\setbeamercovered{dynamic}
+\usecolortheme{beaver}
+% beaver è un tema grigio-rosso, ma non cambia il colore dei bullet di itemize e
+% di enumerate.  Il seguente comando serve impostarli al colore darkred definito
+% nel tema beaver.
+\setbeamercolor{local structure}{fg=darkred}
+
 \usepackage[T1]{fontenc}
 \usefonttheme{professionalfonts}
 \usepackage[sfmath,slantedGreeks]{kpfonts}
@@ -13,7 +21,7 @@
 % riconoscerlo...), tutte le particelle con simboli latini devo usarle con cose
 % del tipo `\textup', `\mathsf' (in contesto matematico), i comandi di
 % `particlessymb' sono utili solo per le poche particelle con simboli greci
-\usepackage{booktabs,particlessymb,siunitx}
+\usepackage{booktabs,graphicx,particlessymb,pifont,siunitx}
 \usepackage[font=scriptsize,labelformat=empty]{caption}
 
 \definecolor{darkblue}{rgb}{0,0,0.8}
@@ -35,17 +43,18 @@
 % Derivata totale: \toder[ordine]{funzione}{variabile}
 \newcommand*{\toder}[3][]{\frac{{\dd^{#1}}#2}{\dd {#3}^{#1}}}
 
-\title{Recenti progressi sullo studio dei raggi cosmici}
+% Simboli che si possono utilizzare negli elenchi dell'ambiente itemize.  `\pro'
+% (nel senso di "vantaggio") produce un tick, `\con' (nel senso di "contro")
+% produce un cross.  Usa simboli del pacchetto `pifont'
+\newcommand{\pro}{\color{alerted text.fg}{\ding{51}}}
+\newcommand{\con}{\color{alerted text.fg}{\ding{55}}}
+
+\title[Recenti progressi sullo studio dei raggi cosmici (GeV)]{Recenti progressi
+  sullo studio \\ dei raggi cosmici \\ nell'energia del GeV}
 \author{Mosè Giordano}
-\date{XX aprile 2013}
-\institute[UniSalento]{Università del Salento}
-\usetheme{Madrid}
-\setbeamercovered{dynamic}
-\usecolortheme{beaver}
-% beaver è un tema grigio-rosso, ma non cambia il colore dei bullet di itemize e
-% di enumerate.  Il seguente comando serve impostarli al colore darkred definito
-% nel tema beaver.
-\setbeamercolor{local structure}{fg=darkred}
+\date{6 maggio 2013}
+\institute{Università del Salento}
+\titlegraphic{\includegraphics[width=20mm]{logo-unisalento}}
 
 \begin{document}
 \begin{frame}
@@ -113,12 +122,12 @@
 \begin{frame}
   \frametitle{Raggi gamma}
   Possibili sorgenti di raggi gamma nelle SNR
-  \begin{itemize}[<+->]
-  \item adronica, decadimento di \PGpz:
+  \begin{itemize}
+  \item<+-> adronica, decadimento di \PGpz:
     \begin{equation*}
       \mathsf{p} + \mathsf{p} \to \PGpz + \mathsf{X}, \quad \PGpz \to 2\PGg
     \end{equation*}
-  \item leptonica
+  \item<+-> leptonica
     \begin{itemize}
     \item bremsstrahlung
     \item effetto Compton inverso
@@ -211,6 +220,7 @@
     \centering
     \includegraphics[width=0.6\columnwidth]{Gamma_telescope_schematic}
     \includegraphics[width=0.4\columnwidth]{f1}
+    \caption{Credit: \url{http://www-glast.stanford.edu/instrument.html}}
   \end{figure}
 \end{frame}
 
@@ -224,7 +234,8 @@
       \SI{1.5}{\kilo \parsec}) e W44 (destra, \SI{2.9}{\kilo \parsec})
       nell'intervallo di energia da \SI{60}{\mega\electronvolt} a
       \SI{2}{\giga\electronvolt}.  Quadrati e croci indicano sorgenti gamma
-      vicine, i rombi sorgenti precedentemente sconosciute}
+      vicine, i rombi sorgenti precedentemente sconosciute.  Credit:
+      \textcite{2013Sci...339..807A}}
   \end{figure}
 \end{frame}
 
@@ -234,7 +245,8 @@
     \centering
     \includegraphics[width=0.5\columnwidth]{1231160fig2a}
     \includegraphics[width=0.5\columnwidth]{1231160fig2b}
-    \caption{Spettro dei raggi gamma di IC 433 e W44, misurato da Fermi-LAT}
+    \caption{Spettro dei raggi gamma di IC 433 e W44, misurato da Fermi-LAT.
+      Credit: \textcite{2013Sci...339..807A}}
   \end{figure}
 \end{frame}
 
@@ -293,7 +305,7 @@
     \centering
     \includegraphics[width=.8\columnwidth]{1231160fig3}
     \caption{Spettro dei raggi gamma e dei protoni progenitori, derivato dallo
-      spettro dei raggi gamma}
+      spettro dei raggi gamma.  Credit: \textcite{2013Sci...339..807A}}
   \end{figure}
 \end{frame}
 
@@ -335,8 +347,9 @@
     \includegraphics[width=0.3\columnwidth]{ams}
   \end{figure}
   È un modulo per condurre esperimenti di fisica delle particelle ad alte
-  energie installato sulla Stazione Spaziale Internazionale.  Obiettivi
-  dell'esperimento:
+  energie (\SIrange[range-phrase=--]{0.5}{350}{\giga\electronvolt}) installato
+  sulla Stazione Spaziale Internazionale, a \SI{350}{\kilo\metre} di quota.
+  Obiettivi dell'esperimento:
   \begin{itemize}
   \item analisi dei \alert{raggi cosmici}
   \item studi sulla \alert{formazione dell'Universo}
@@ -359,7 +372,8 @@
   \frametitle{AMS-02: i rivelatori (cont.)}
   \begin{figure}
     \centering
-    \includegraphics[width=.55\columnwidth]{ams-rivelatori2}
+    \includegraphics[width=.5\columnwidth]{ams-rivelatori2}
+    \caption{Credit: \textcite{2013PhRvL.110n1102A}}
   \end{figure}
 \end{frame}
 
@@ -367,7 +381,8 @@
   \frametitle{AMS-02: analisi dei dati}
   \begin{figure}
     \centering
-    \includegraphics[width=.8\columnwidth]{ams1}
+    \includegraphics[width=.7\columnwidth]{ams1}
+    \caption{Credit: \textcite{2013PhRvL.110n1102A}}
   \end{figure}
 \end{frame}
 
@@ -375,29 +390,42 @@
   \frametitle{AMS-02: analisi dei dati (cont.)}
   Fit con un modello minimale.  Flussi di positroni ed elettroni
   \begin{gather*}
-    \Phi_{\Pep} = \tikzmarkin<2>[set fill color=darkred!10,set border
-    color=darkred]{a}C_{\Pep}E^{-\gamma_{\Pep}}\tikzmarkend{a}
-    + \tikzmarkin<4>[set fill color=darkred!50!darkblue!10,set border
+    \Phi_{\textup{e}^{+}} =
+    \tikzmarkin<2>[set fill color=darkred!10,set border color=darkred]{a}
+    C_{\textup{e}^{+}}E^{-\gamma_{\textup{e}^{+}}} \tikzmarkend{a} +
+    \tikzmarkin<4>[set fill color=darkred!50!darkblue!10,set border
     color=darkred!50!darkblue]{b}C_{\textup{s}}E^{-\gamma_{\textup{s}}}
-      \e^{-E/E_{\textup{s}}}\tikzmarkend{b} \\
-    \Phi_{\Pem} = \tikzmarkin<3>[set fill color=darkblue!10,set border
-    color=darkblue]{c}C_{\Pem}E^{-\gamma_{\Pem}}\tikzmarkend{c}
-    + \tikzmarkin<4>[set fill color=darkred!50!darkblue!10,set border
+    \e^{-E/E_{\textup{s}}}\tikzmarkend{b} \\
+    \Phi_{\textup{e}^{-}} =
+    \tikzmarkin<3>[set fill color=darkblue!10,set border color=darkblue]{c}
+    C_{\textup{e}^{-}}E^{-\gamma_{\textup{e}^{-}}} \tikzmarkend{c} +
+    \tikzmarkin<4>[set fill color=darkred!50!darkblue!10,set border
     color=darkred!50!darkblue]{d}C_{\textup{s}}E^{-\gamma_{\textup{s}}}
-      \e^{-E/E_{\textup{s}}}\tikzmarkend{d}
+    \e^{-E/E_{\textup{s}}}\tikzmarkend{d}
   \end{gather*}
+  Frazione di positroni
+  \begin{equation*}
+    \frac{\Phi_{\textup{e}^{+}}}{\Phi_{\textup{e}^{+}} + \Phi_{\textup{e}^{-}}}
+    = \frac{C_{\textup{e}^{+}}E^{-\gamma_{\textup{e}^{+}}} +
+      C_{\textup{s}}E^{-\gamma_{\textup{s}}}
+      \e^{-E/E_{\textup{s}}}}{C_{\textup{e}^{+}}E^{-\gamma_{\textup{e}^{+}}} +
+      C_{\textup{e}^{-}}E^{-\gamma_{\textup{e}^{-}}} +
+      2C_{\textup{s}}E^{-\gamma_{\textup{s}}}
+      \e^{-E/E_{\textup{s}}}}
+  \end{equation*}
 \end{frame}
 
 \begin{frame}
   \frametitle{AMS-02: analisi dei dati (cont.)}
   \begin{figure}
     \centering
-    \includegraphics[width=.7\columnwidth]{ams2}
+    \includegraphics[width=.6\columnwidth]{ams2}
+    \caption{Credit: \textcite{2013PhRvL.110n1102A}}
   \end{figure}
-  $\gamma_{\Pem} - \gamma_{\Pep} = \num{-0.63(3)}$ \\
-  $\gamma_{\Pem} - \gamma_{\textup{s}} = \num{0.66(5)}$ \\
-  $C_{\Pep}/C_{\Pem} = \num{0.091(1)}$ \\
-  $C_{\textup{s}}/C_{\Pem} = \num{0.0078(12)}$ \\
+  $\gamma_{\textup{e}^{-}} - \gamma_{\textup{e}^{+}} = \num{-0.63(3)}$ \\
+  $\gamma_{\textup{e}^{-}} - \gamma_{\textup{s}} = \num{0.66(5)}$ \\
+  $C_{\textup{e}^{+}}/C_{\textup{e}^{-}} = \num{0.091(1)}$ \\
+  $C_{\textup{s}}/C_{\textup{e}^{-}} = \num{0.0078(12)}$ \\
   $1/E_{\textup{s}} =
   \SI[per-mode=reciprocal]{0.0013(7)}{\per\giga\electronvolt} \implies
   E_{\textup{s}} = 760^{+1000}_{-280} \si{\giga \electronvolt}$ \\
@@ -444,14 +472,28 @@
   \uncover<+->{L'ipotesi di \alert{sola sorgente secondaria non è sufficiente}
     per spiegare l'aumento della frazione di positroni, è necessario invocare un
     \alert{altro fenomeno}, di fisica delle particelle o altra sorgente
-    astrofisica.}
+    astrofisica}
+\end{frame}
+
+\begin{frame}
+  \frametitle{AMS-02: conclusioni (cont.)}
+  Possibili spiegazioni dell'aumento della frazione di positroni
+  \begin{itemize}
+  \item<+-> pulsar
+  \item<+-> materia oscura
+    \begin{itemize}
+    \item[\con] distribuzione isotropa
+    \item[\con] spettro dovrebbe presentare un picco intorno a metà della massa
+      della particella originaria (e.g., neutralino) se decade in e\ap{+} +
+      e\ap{-}
+    \end{itemize}
+  \end{itemize}
 \end{frame}
 
 \section{\refname}
 
 \begin{frame}
   \frametitle{\refname{}}
-  \nocite{*}
   \printbibliography{}
 \end{frame}
 \end{document}
