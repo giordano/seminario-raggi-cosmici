@@ -143,8 +143,8 @@
   sono prodotte dall'interazione fra i nuclei presenti nei raggi cosmici e gli
   atomi del mezzo interstellare (\alert{sorgente secondaria}).
 
-  I positroni possono anche essere prodotti in pulsar o microquasars attraverso
-  l'annichilazione di materia oscura (\alert{sorgente primaria}).
+  I positroni possono anche essere prodotti in pulsar o microquasars oppure
+  attraverso l'annichilazione di materia oscura (\alert{sorgente primaria}).
 
   Si ritiene che i protoni siano
   \alert{prodotti soprattutto da sorgenti secondarie}.
@@ -347,9 +347,10 @@
     \includegraphics[width=0.3\columnwidth]{ams}
   \end{figure}
   È un modulo per condurre esperimenti di fisica delle particelle ad alte
-  energie (\SIrange[range-phrase=--]{0.5}{350}{\giga\electronvolt}) installato
-  sulla Stazione Spaziale Internazionale, a \SI{350}{\kilo\metre} di quota.
-  Obiettivi dell'esperimento:
+  energie (dati pubblicati nel range
+  \SIrange[range-phrase=--]{0.5}{350}{\giga\electronvolt}) installato sulla
+  Stazione Spaziale Internazionale, a \SI{350}{\kilo\metre} di quota.  Obiettivi
+  dell'esperimento:
   \begin{itemize}
   \item analisi dei \alert{raggi cosmici}
   \item studi sulla \alert{formazione dell'Universo}
@@ -467,27 +468,72 @@
     di un ordine di grandezza da
     \SIrange[range-phrase={ a }]{20}{250}{\giga \electronvolt} e non si osserva
     \alert{nessuna struttura fine}
-  \item il rapporto positroni/elettroni è compatibile con l'ipotesi di isotropia
+  \item che il rapporto positroni/elettroni è compatibile con l'ipotesi di
+    isotropia
   \end{enumerate}
-  \uncover<+->{L'ipotesi di \alert{sola sorgente secondaria non è sufficiente}
-    per spiegare l'aumento della frazione di positroni, è necessario invocare un
-    \alert{altro fenomeno}, di fisica delle particelle o altra sorgente
-    astrofisica}
 \end{frame}
 
 \begin{frame}
   \frametitle{AMS-02: conclusioni (cont.)}
-  Possibili spiegazioni dell'aumento della frazione di positroni
+  L'ipotesi di \alert{sola sorgente secondaria non è sufficiente} per spiegare
+  l'aumento della frazione di positroni, è necessario invocare un
+  \alert{altro fenomeno}, di fisica delle particelle o altra sorgente
+  astrofisica
+  \pause{}
   \begin{itemize}
   \item<+-> pulsar
+    \begin{itemize}
+      % Se le sorgenti sono poche (1 o 2) pulsar e vicine (fino a poche
+      % centinaia di parsec) dovrebbe esserci una anisotropia osservabile,
+      % poiché i positroni ed elettroni non avrebbero lo spazio per essere
+      % redistribuiti isotropicamente dal campo magnetico galattico.  Peraltro,
+      % le due pulsar più vicine note (Monogem e Geminga) sono in opposizione
+      % rispetto al centro della Galassia, quindi un'eventuale anisotropia in
+      % quella direzione indicherebbe più o meno chiaramente un'origine
+      % astrofisica dei positroni, invece un'anisotropia verso il centro della
+      % Galassia sarebbe un indizio di materia oscura (che è più concentrata nel
+      % centro della Galassia).
+    \item[\con] distribuzione isotropa
+    \item[\pro] i dati si adattano bene a questo modello
+      ({\usebeamercolor[fg]{bibliography entry note}
+        \href{http://arxiv.org/abs/1304.1791}{arXiv: 1304.1791}}), rasoio di
+      Occam
+    \end{itemize}
   \item<+-> materia oscura
     \begin{itemize}
+      % In realtà l'isotropia dovrebbe essere sia un pro sia un contro.  Contro:
+      % la materia oscura (almeno della Via Lattea) è distribuita in tutto
+      % l'alone, molto più grande della Galassia, ma dovrebbe essere concentrata
+      % sopratutto nel centro della Galassia, quindi dovrebbe esserci
+      % anisotropia in quella direzione (inoltre la probabilità che si formi una
+      % coppia e+e- va come il quadrato della distribuzione di materia oscura se
+      % la coppia deriva dall'annichilazione di questa, si devono incontrare due
+      % particelle).  Pro: il campo magnetico galattico dovrebbe riuscire a
+      % rimescolare gli e+e- (il centro galattico dista da noi ~8 kpc, circa un
+      % ordine di grandezza in più rispetto alle pulsar considerate sopra),
+      % rendendo la distribuzione isotropa.
     \item[\con] distribuzione isotropa
-    \item[\con] spettro dovrebbe presentare un picco intorno a metà della massa
-      della particella originaria (e.g., neutralino) se decade in e\ap{+} +
-      e\ap{-}
+      % Qualcuno (arXiv:1304.1791) sostiene che la decrescita dovrebbe esserci
+      % anche nel caso di ipotesi di sorgente pulsar, per perdite di energia e/o
+      % spettro intrinseco di iniezione della sorgente, quindi la presenza della
+      % decrescita potrebbe non essere determinante per discriminare fra i due
+      % modelli.
+    \item[\con] spettro positroni dovrebbe presentare una rapida decrescita
+      intorno alla massa della particella originaria (e.g.,
+      $\PSGcz \PSGcz \to \text{e\ap{+}e\ap{-}}$)
+    \item[\pro] diminuzione della pendenza a \SI{350}{\giga\electronvolt}
+      potrebbe essere anticipazione della decrescita
+    \item[\con] sezione d'urto relativamente alta
+      ($\langle \sigma v\rangle \gtrsim
+      \SI{e-24}{\centi\metre\cubed\per\second}$,
+      {\usebeamercolor[fg]{bibliography entry note}
+        \href{http://arxiv.org/abs/1304.1184}{arXiv: 1304.1184}})
     \end{itemize}
   \end{itemize}
+  \uncover<+->{In ogni caso,
+    \alert{i risultati attuali di AMS-02 non danno alcuna risposta definitiva},
+    né in un senso né nell'altro, bisognerà attendere ulteriori dati per poter
+    trarre conclusioni più concrete}
 \end{frame}
 
 \section{\refname}
