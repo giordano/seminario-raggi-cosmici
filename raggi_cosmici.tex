@@ -42,6 +42,7 @@
 \newcommand*{\dd}{\mathop{}\!\textup{d}} % Operatore differenziale \dd
 % Derivata totale: \toder[ordine]{funzione}{variabile}
 \newcommand*{\toder}[3][]{\frac{{\dd^{#1}}#2}{\dd {#3}^{#1}}}
+\newcommand*{\ltoder}[3][]{{\dd^{#1}}#2/\dd {#3}^{#1}}
 
 % Simboli che si possono utilizzare negli elenchi dell'ambiente itemize.  `\pro'
 % (nel senso di "vantaggio") produce un tick, `\con' (nel senso di "contro")
@@ -113,7 +114,7 @@
       \begin{figure}
         \centering
         \includegraphics[width=\columnwidth]{cr-spectrum}
-        \caption{Credit: Sven Lafebre}
+        \caption{Crediti: Sven Lafebre}
       \end{figure}
     \end{column}
   \end{columns}
@@ -220,7 +221,7 @@
     \centering
     \includegraphics[width=0.6\columnwidth]{Gamma_telescope_schematic}
     \includegraphics[width=0.4\columnwidth]{f1}
-    \caption{Credit: \url{http://www-glast.stanford.edu/instrument.html}}
+    \caption{Crediti: \url{http://www-glast.stanford.edu/instrument.html}}
   \end{figure}
 \end{frame}
 
@@ -234,24 +235,13 @@
       \SI{1.5}{\kilo \parsec}) e W44 (destra, \SI{2.9}{\kilo \parsec})
       nell'intervallo di energia da \SI{60}{\mega\electronvolt} a
       \SI{2}{\giga\electronvolt}.  Quadrati e croci indicano sorgenti gamma
-      vicine, i rombi sorgenti precedentemente sconosciute.  Credit:
+      vicine, i rombi sorgenti precedentemente sconosciute.  Crediti:
       \textcite{2013Sci...339..807A}}
   \end{figure}
 \end{frame}
 
 \begin{frame}
   \frametitle{Fermi-LAT: analisi dei dati}
-  \begin{figure}
-    \centering
-    \includegraphics[width=0.5\columnwidth]{1231160fig2a}
-    \includegraphics[width=0.5\columnwidth]{1231160fig2b}
-    \caption{Spettro dei raggi gamma di IC 433 e W44, misurato da Fermi-LAT.
-      Credit: \textcite{2013Sci...339..807A}}
-  \end{figure}
-\end{frame}
-
-\begin{frame}
-  \frametitle{Fermi-LAT: analisi dei dati (cont.)}
   Power law (PL):
   \begin{equation*}
     F(\epsilon) = K
@@ -274,12 +264,23 @@
   \end{equation*}
   $\epsilon_{0} = \SI{200}{\mega \electronvolt}$, parametro di smoothness del
   break fissato a $\alpha = 0.1$
-  \begin{table}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Fermi-LAT: analisi dei dati (cont.)}
+  \begin{figure}
+    \centering
+    \includegraphics[width=0.5\columnwidth]{1231160fig2a}
+    \includegraphics[width=0.5\columnwidth]{1231160fig2b}
+    \caption{Spettro dei raggi gamma di IC 433 e W44, misurato da Fermi-LAT.
+      Crediti: \textcite{2013Sci...339..807A}}
+  \end{figure}
+    \begin{table}
     \centering
     %\sisetup{per-mode=reciprocal}
-    \resizebox{\columnwidth}{!}{\begin{tabular}{cccccc}
+    \resizebox{0.7\columnwidth}{!}{\begin{tabular}{cccccc}
         \toprule
-        Modello & $K$ (cm\ap{$2$}s\ap{$-1$}MeV\ap{$-1$})
+        Modello & $K$ (cm\ap{$2$}$\cdot$s\ap{$-1$}$\cdot$MeV\ap{$-1$})
         & $\Gamma_1$ & $\Gamma_2$ & $\varepsilon_{\textup{br}}$
         (\si{\mega \electronvolt}) & $TS$ \\
         \midrule
@@ -303,29 +304,42 @@
   \frametitle{Fermi-LAT: analisi dei dati (cont.)}
   \begin{figure}
     \centering
-    \includegraphics[width=.8\columnwidth]{1231160fig3}
+    \includegraphics[width=.68\columnwidth]{1231160fig3}
     \caption{Spettro dei raggi gamma e dei protoni progenitori, derivato dallo
-      spettro dei raggi gamma.  Credit: \textcite{2013Sci...339..807A}}
+      spettro dei raggi gamma con una BPL della forma
+      \begin{minipage}{1.0\linewidth}
+        \begin{equation*}
+          \toder{N_{\textup{p}}}{p} \propto
+          \left(
+            1 +
+            \left(
+              \frac{p}{p_{\textup{br}}}
+            \right)^{(s_{1} - s_{2})/\beta}
+          \right)^{-\beta}
+        \end{equation*}
+      \end{minipage}
+      Per IC~443: $s_{1} = \num{2.36(2)}$, $s_{2} = \num{3.1(1)}$,
+      $p_{\textup{br}} = \SI{239(74)}{\giga \electronvolt \per \clight}$  \\
+      Per W44: $s_{1} = \num{2.36(5)}$, $s_{2} = \num{3.5(3)}$,
+      $p_{\textup{br}} = \SI{22(8)}{\giga \electronvolt \per \clight}$ \\
+      Crediti: \textcite{2013Sci...339..807A}}
   \end{figure}
 \end{frame}
 
 \begin{frame}
   \frametitle{Fermi-LAT: analisi dei dati (cont.)}
-  Lo spettro dei supposti protoni progenitori è stato derivato da una BPL della
-  forma
-  \begin{equation*}
-    \toder{N_{\textup{p}}}{p} \propto
-    \left(
-      1 +
-      \left(
-        \frac{p}{p_{\textup{br}}}
-      \right)^{(s_{1} - s_{2})/\beta}
-    \right)^{-\beta}
-  \end{equation*}
-  Per IC~443: $s_{1} = \num{2.36(2)}$, $s_{2} = \num{3.1(1)}$,
-  $p_{\textup{br}} = \SI{239(74)}{\giga \electronvolt \per \clight}$.  \\
-  Per W44: $s_{1} = \num{2.36(5)}$, $s_{2} = \num{3.5(3)}$,
-  $p_{\textup{br}} = \SI{22(8)}{\giga \electronvolt \per \clight}$.
+  Si potrebbe pensare a un meccanismo di produzione dei raggi \PGg
+  prevalentemente leptonico
+  \begin{itemize}
+  \item[\con] se il meccanismo fosse l'effetto Compton inverso, l'energia
+    cinetica totale degli elettroni dovrebbe essere $\sim \SI{e51}{erg}$
+  \item[\con] un modello basato principalmente sul bremsstrahlung non si adatta
+    allo spettro dei raggi \PGg osservato, a meno di introdurre un break ad hoc
+    a \SI{300}{\mega\electronvolt\per\clight}
+  \item[\pro] il bremsstrahlung elettronico può contribuire solo a basso livello
+    $K_{\textup{ep}} = (\ltoder{N_{\textup{e}}}{p})/(\ltoder{N_{\textup{p}}}{p})
+    \sim 0.01$
+  \end{itemize}
 \end{frame}
 
 \begin{frame}
@@ -374,7 +388,7 @@
   \begin{figure}
     \centering
     \includegraphics[width=.5\columnwidth]{ams-rivelatori2}
-    \caption{Credit: \textcite{2013PhRvL.110n1102A}}
+    \caption{Crediti: \textcite{2013PhRvL.110n1102A}}
   \end{figure}
 \end{frame}
 
@@ -383,7 +397,7 @@
   \begin{figure}
     \centering
     \includegraphics[width=.7\columnwidth]{ams1}
-    \caption{Credit: \textcite{2013PhRvL.110n1102A}}
+    \caption{Crediti: \textcite{2013PhRvL.110n1102A}}
   \end{figure}
 \end{frame}
 
@@ -421,7 +435,7 @@
   \begin{figure}
     \centering
     \includegraphics[width=.6\columnwidth]{ams2}
-    \caption{Credit: \textcite{2013PhRvL.110n1102A}}
+    \caption{Crediti: \textcite{2013PhRvL.110n1102A}}
   \end{figure}
   $\gamma_{\textup{e}^{-}} - \gamma_{\textup{e}^{+}} = \num{-0.63(3)}$ \\
   $\gamma_{\textup{e}^{-}} - \gamma_{\textup{s}} = \num{0.66(5)}$ \\
