@@ -5,7 +5,7 @@
 % beaver è un tema grigio-rosso, ma non cambia il colore dei bullet di itemize e
 % di enumerate.  Il seguente comando serve impostarli al colore darkred definito
 % nel tema beaver.
-\setbeamercolor{local structure}{fg=darkred}
+\setbeamercolor{structure}{fg=darkred}
 
 \usepackage[T1]{fontenc}
 \usefonttheme{professionalfonts}
@@ -34,6 +34,11 @@
   separate-uncertainty=true
 }
 \addbibresource{bibliografia.bib}
+
+\newcommand{\arxiv}[1]{{\usebeamercolor[fg]{bibliography entry note}
+    \href{http://arxiv.org/abs/#1}{arXiv: \texttt{#1}}}}
+\newcommand{\doi}[1]{{\usebeamercolor[fg]{bibliography entry note}
+    \href{http://dx.doi.org/#1}{\textsc{doi}: \texttt{#1}}}}
 
 \DeclareMathOperator{\e}{\mathrm{e}}
 \renewcommand{\phi}{\varphi}
@@ -90,6 +95,16 @@
 \end{frame}
 
 \begin{frame}
+  \frametitle{Raggi cosmici: abbondanza degli elementi}
+  \begin{figure}
+    \centering
+    \includegraphics[width=0.8\columnwidth]{cr-abundances}
+    \caption{Confronto fra l'abbondanza degli elementi nei raggi cosmici e nel
+      Sistema Solare.  Crediti: M. S. Longair. «High Energy Astrophysics»}
+  \end{figure}
+\end{frame}
+
+\begin{frame}
   \frametitle{Raggi cosmici: lo spettro energetico}
   \begin{columns}
     \begin{column}{0.55\columnwidth}
@@ -135,7 +150,6 @@
     \end{itemize}
   \end{itemize}
 \end{frame}
-
 
 \begin{frame}
   \frametitle{Positroni}
@@ -396,7 +410,7 @@
   \frametitle{AMS-02: analisi dei dati}
   \begin{figure}
     \centering
-    \includegraphics[width=.7\columnwidth]{ams1}
+    \includegraphics[width=.74\columnwidth]{ams1}
     \caption{Crediti: \textcite{2013PhRvL.110n1102A}}
   \end{figure}
 \end{frame}
@@ -434,13 +448,13 @@
   \frametitle{AMS-02: analisi dei dati (cont.)}
   \begin{figure}
     \centering
-    \includegraphics[width=.6\columnwidth]{ams2}
+    \includegraphics[width=.77\columnwidth]{ams2}
     \caption{Crediti: \textcite{2013PhRvL.110n1102A}}
   \end{figure}
-  $\gamma_{\textup{e}^{-}} - \gamma_{\textup{e}^{+}} = \num{-0.63(3)}$ \\
-  $\gamma_{\textup{e}^{-}} - \gamma_{\textup{s}} = \num{0.66(5)}$ \\
-  $C_{\textup{e}^{+}}/C_{\textup{e}^{-}} = \num{0.091(1)}$ \\
-  $C_{\textup{s}}/C_{\textup{e}^{-}} = \num{0.0078(12)}$ \\
+  $\gamma_{\textup{e}^{-}} - \gamma_{\textup{e}^{+}} = \num{-0.63(3)} \qquad
+  \qquad \gamma_{\textup{e}^{-}} - \gamma_{\textup{s}} = \num{0.66(5)}$ \\
+  $C_{\textup{e}^{+}}/C_{\textup{e}^{-}} = \num{0.091(1)} \qquad \qquad
+  C_{\textup{s}}/C_{\textup{e}^{-}} = \num{0.0078(12)}$ \\
   $1/E_{\textup{s}} =
   \SI[per-mode=reciprocal]{0.0013(7)}{\per\giga\electronvolt} \implies
   E_{\textup{s}} = 760^{+1000}_{-280} \si{\giga \electronvolt}$ \\
@@ -451,8 +465,9 @@
   \frametitle{AMS-02: analisi dei dati (cont.)}
   Fluttuazioni della frazione osservata di positroni
   \begin{equation*}
-    \frac{r_{\Pe}(b,l)}{\langle r_{\Pe}\rangle} - 1 = \sum_{\ell=0}^{\infty}
-    \sum_{m=-\ell}^{\ell} a_{\ell m}Y_{\ell}^{m}(\pi/2 - b,l)
+    \frac{r_{\textup{e}}(b,l)}{\langle r_{\textup{e}}\rangle} - 1 =
+    \sum_{\ell=0}^{\infty} \sum_{m=-\ell}^{\ell} a_{\ell m}Y_{\ell}^{m}(\pi/2 -
+    b,l)
   \end{equation*}
   Coefficienti dello spettro di potenza angolare
   \begin{equation*}
@@ -470,7 +485,7 @@
   Questi primi dati raccolti da AMS-02 mostrano
   \begin{enumerate}[<+->]
   \item fino a \SI{10}{\giga \electronvolt}, una
-    \alert{decrescita della frazione di positroni} all'aumentare dell'energia
+    \alert{diminuzione della frazione di positroni} all'aumentare dell'energia
   \item un evidente \alert{aumento della frazione di positroni} da
     \SIrange[range-phrase={ fino a }]{10}{\sim 250}{\giga \electronvolt}
   \item che la determinazione del comportamento della frazione di positroni fra
@@ -485,17 +500,21 @@
   \item che il rapporto positroni/elettroni è compatibile con l'ipotesi di
     isotropia
   \end{enumerate}
+  \uncover<+->{Questi dati non mostrano molto di nuovo, sono in gran parte una
+    \alert{conferma di quanto già trovato da PAMELA}
+    (\doi{10.1038/nature07942}), sebbene con una precisione migliore e in un
+    intervallo di energia più grande}
 \end{frame}
 
 \begin{frame}
   \frametitle{AMS-02: conclusioni (cont.)}
+  \small
   L'ipotesi di \alert{sola sorgente secondaria non è sufficiente} per spiegare
   l'aumento della frazione di positroni, è necessario invocare un
-  \alert{altro fenomeno}, di fisica delle particelle o altra sorgente
-  astrofisica
+  \alert{altro fenomeno}
   \pause{}
   \begin{itemize}
-  \item<+-> pulsar
+  \item<+-> una o più pulsar vicine
     \begin{itemize}
       % Se le sorgenti sono poche (1 o 2) pulsar e vicine (fino a poche
       % centinaia di parsec) dovrebbe esserci una anisotropia osservabile,
@@ -507,13 +526,11 @@
       % astrofisica dei positroni, invece un'anisotropia verso il centro della
       % Galassia sarebbe un indizio di materia oscura (che è più concentrata nel
       % centro della Galassia).
-    \item[\con] distribuzione isotropa
-    \item[\pro] i dati si adattano bene a questo modello
-      ({\usebeamercolor[fg]{bibliography entry note}
-        \href{http://arxiv.org/abs/1304.1791}{arXiv: 1304.1791}}), rasoio di
-      Occam
+    \item[\con] distribuzione isotropa (altre pulsar vicine sconosciute?)
+    \item[\pro] i dati si adattano bene a questo modello (\arxiv{1304.1791}),
+      rasoio di Occam
     \end{itemize}
-  \item<+-> materia oscura
+  \item<+-> annichilazione di materia oscura
     \begin{itemize}
       % In realtà l'isotropia dovrebbe essere sia un pro sia un contro.  Contro:
       % la materia oscura (almeno della Via Lattea) è distribuita in tutto
@@ -527,27 +544,32 @@
       % ordine di grandezza in più rispetto alle pulsar considerate sopra),
       % rendendo la distribuzione isotropa.
     \item[\con] distribuzione isotropa
-      % Qualcuno (arXiv:1304.1791) sostiene che la decrescita dovrebbe esserci
-      % anche nel caso di ipotesi di sorgente pulsar, per perdite di energia e/o
-      % spettro intrinseco di iniezione della sorgente, quindi la presenza della
-      % decrescita potrebbe non essere determinante per discriminare fra i due
+      % Qualcuno (arXiv:1304.1791) sostiene che il taglio dovrebbe esserci anche
+      % nel caso di ipotesi di sorgente pulsar, per perdite di energia e/o
+      % spettro intrinseco di iniezione della sorgente, quindi la presenza del
+      % taglio potrebbe non essere determinante per discriminare fra i due
       % modelli.
-    \item[\con] spettro positroni dovrebbe presentare una rapida decrescita
-      intorno alla massa della particella originaria (e.g.,
+    \item[\con] spettro positroni dovrebbe presentare un netto taglio intorno
+      alla massa della particella originaria (e.g.,
       $\PSGcz \PSGcz \to \text{e\ap{+}e\ap{-}}$)
     \item[\pro] diminuzione della pendenza a \SI{350}{\giga\electronvolt}
-      potrebbe essere anticipazione della decrescita
-    \item[\con] sezione d'urto relativamente alta
+      anticipazione del taglio?
+    \item[\con] sezione d'urto di annichilazione sarebbe relativamente alta
       ($\langle \sigma v\rangle \gtrsim
-      \SI{e-24}{\centi\metre\cubed\per\second}$,
-      {\usebeamercolor[fg]{bibliography entry note}
-        \href{http://arxiv.org/abs/1304.1184}{arXiv: 1304.1184}})
+      \SI{e-24}{\centi\metre\cubed\per\second}$, \arxiv{1304.1184})
+    \item[\con] massa dedotta della particella di materia oscura
+      ($\gtrsim \SI{350}{\giga\electronvolt\per\clight\squared}$) è
+      incompatibile con risultati di altri esperimenti (CDMS:
+      \SI{8.6}{\giga\electronvolt\per\clight\squared}, \arxiv{1304.4279}; Fermi:
+      $\sim\SI{130}{\giga\electronvolt\per\clight\squared}$,
+      \doi{10.1088/1475-7516/2012/08/007}; DAMA, CoGeNT:
+      $\sim \SI{10}{\giga\electronvolt\per\clight\squared}$)
     \end{itemize}
   \end{itemize}
   \uncover<+->{In ogni caso,
     \alert{i risultati attuali di AMS-02 non danno alcuna risposta definitiva},
-    né in un senso né nell'altro, bisognerà attendere ulteriori dati per poter
-    trarre conclusioni più concrete}
+    né in un senso né nell'altro, bisognerà attendere ulteriori dati e un
+    miglioramento dei modelli teorici per poter trarre conclusioni più concrete}
 \end{frame}
 
 \section{\refname}
