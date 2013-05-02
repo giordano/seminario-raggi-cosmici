@@ -24,6 +24,8 @@
 \usepackage{booktabs,graphicx,particlessymb,pifont,siunitx}
 \usepackage[font=scriptsize,labelformat=empty]{caption}
 
+\graphicspath{{figure/}} % cartella in cui cercare le immagini da caricare
+
 \definecolor{darkblue}{rgb}{0,0,0.8}
 \DeclareSIUnit\parsec{pc}
 \DeclareSIUnit\clight{\text{\ensuremath{c}}}
@@ -91,7 +93,7 @@
   \item 1\% elettroni liberi
   \item \numrange[range-phrase=--]{e-5}{e-4} antiprotoni
   \end{itemize}
-  Distribuzione sostanzialmente isotropa
+  Distribuzione \alert{sostanzialmente isotropa}
 \end{frame}
 
 \begin{frame}
@@ -136,6 +138,23 @@
 \end{frame}
 
 \begin{frame}
+  \frametitle{Raggi cosmici: perché studiarli?}
+  Obiettivi fisici dello studio dei raggi cosmici ad alte energie
+  (\si{\giga\electronvolt} -- \si{\tera\electronvolt})
+  \begin{itemize}
+  \item sorgenti delle particelle accelerate
+  \item composizione chimica
+  \item modelli di propagazione
+  \item ricerca diretta di antimateria
+  \item rivelazione indiretta di materia oscura
+  \end{itemize}
+\end{frame}
+
+\section{Risultati recenti}
+
+\subsection{Fermi Gamma-ray Space Telescope}
+
+\begin{frame}
   \frametitle{Raggi gamma}
   Possibili sorgenti di raggi gamma nelle SNR
   \begin{itemize}
@@ -150,31 +169,6 @@
     \end{itemize}
   \end{itemize}
 \end{frame}
-
-\begin{frame}
-  \frametitle{Positroni}
-  % Discussione teorica presa da doi:10.1038/nature07942
-  Una piccola parte dei raggi cosmici è costituita da antiparticelle, le quali
-  sono prodotte dall'interazione fra i nuclei presenti nei raggi cosmici e gli
-  atomi del mezzo interstellare (\alert{sorgente secondaria}).
-
-  I positroni possono anche essere prodotti in pulsar o microquasars oppure
-  attraverso l'annichilazione di materia oscura (\alert{sorgente primaria}).
-
-  Si ritiene che i protoni siano
-  \alert{prodotti soprattutto da sorgenti secondarie}.
-
-  Prendendo in considerazione le perdite di energia dei raggi cosmici primari,
-  ci si aspetta che gli elettroni abbiano uno spettro più ``duro'' rispetto ai
-  positroni, se questi sono soprattutto di origine secondaria.  Se quest'ultima
-  ipotesi fosse valida,
-  \alert{la frazione di positroni dovrebbe diminuire all'aumentare
-    dell'energia}.
-\end{frame}
-
-\section{Risultati recenti}
-
-\subsection{Fermi Gamma-ray Space Telescope}
 
 \begin{frame}
   \frametitle{Fermi: l'esperimento}
@@ -193,7 +187,7 @@
   \item studio \alert{sorgenti gamma non identificate} e
     \alert{radiazione gamma diffusa} galattica ed extra-galattica
   \item studio \alert{emissione ad altissima energia} nei GRB
-  \item rivelazione indiretta della \alert{materia oscura}, attraverso suo
+  \item rivelazione indiretta della \alert{materia oscura}, attraverso
     decadimento o annichilazione in fotoni o elettroni e positroni
   \item osservazione \alert{evaporazione di MBH} dalla presunta traccia di lampi
     gamma
@@ -350,7 +344,7 @@
   \item[\con] un modello basato principalmente sul bremsstrahlung non si adatta
     allo spettro dei raggi \PGg osservato, a meno di introdurre un break ad hoc
     a \SI{300}{\mega\electronvolt\per\clight}
-  \item[\pro] il bremsstrahlung elettronico può contribuire solo a basso livello
+  \item[\pro] il bremsstrahlung elettronico può contribuire a basso livello
     $K_{\textup{ep}} = (\ltoder{N_{\textup{e}}}{p})/(\ltoder{N_{\textup{p}}}{p})
     \sim 0.01$
   \end{itemize}
@@ -363,10 +357,31 @@
   compatibile con un meccanismo primario di produzione di raggi gamma da
   elettroni relativistici (bremsstrahlung o effetto Compton inverso).  Ciò può
   essere interpretato come una
-  \alert{prova diretta della presenza di protoni accelerati} nelle SNR
+  \alert{forte evidenza della presenza di protoni accelerati} nelle SNR
 \end{frame}
 
 \subsection{Alpha Magnetic Spectrometer}
+
+\begin{frame}
+  \frametitle{Positroni}
+  % Discussione teorica presa da doi:10.1038/nature07942
+  Una piccola parte dei raggi cosmici è costituita da antiparticelle, le quali
+  sono prodotte dall'interazione fra i nuclei presenti nei raggi cosmici e gli
+  atomi del mezzo interstellare (\alert{sorgente secondaria}).
+
+  I positroni possono anche essere prodotti in pulsar o microquasars oppure
+  attraverso l'annichilazione di materia oscura (\alert{sorgente primaria}).
+
+  Si ritiene che i protoni siano
+  \alert{prodotti soprattutto da sorgenti secondarie}.
+
+  Prendendo in considerazione le perdite di energia dei raggi cosmici primari,
+  ci si aspetta che gli elettroni abbiano uno spettro più ``duro'' rispetto ai
+  positroni, se questi sono soprattutto di origine secondaria.  Se quest'ultima
+  ipotesi fosse valida,
+  \alert{la frazione di positroni dovrebbe diminuire all'aumentare
+    dell'energia}.
+\end{frame}
 
 \begin{frame}
   \frametitle{AMS-02: l'esperimento}
@@ -392,8 +407,8 @@
   \frametitle{AMS-02: i rivelatori}
   \begin{figure}
     \centering
-    % http://www.ams02.org/it/che-cosa-ams/strumenti/
-    \includegraphics[width=.85\columnwidth]{ams-rivelatori}
+    \includegraphics[width=.78\columnwidth]{ams-rivelatori}
+    \caption{Crediti: \url{http://www.ams02.org/it/che-cosa-ams/strumenti/}}
   \end{figure}
 \end{frame}
 
@@ -405,6 +420,16 @@
     \caption{Crediti: \textcite{2013PhRvL.110n1102A}}
   \end{figure}
 \end{frame}
+
+% \begin{frame}
+%   \frametitle{AMS-02: i rivelatori (cont.)}
+%   \begin{figure}
+%     \centering
+%     \includegraphics[width=0.9\columnwidth]{ams4}
+%     \caption{Crediti:
+%       \url{http://www.nasa.gov/centers/johnson/engineering/projects/alpha_magnetic_spectrometer/index.html}}
+%   \end{figure}
+% \end{frame}
 
 \begin{frame}
   \frametitle{AMS-02: analisi dei dati}
@@ -482,8 +507,8 @@
 
 \begin{frame}
   \frametitle{AMS-02: conclusioni}
-  Questi primi dati raccolti da AMS-02 mostrano
-  \begin{enumerate}[<+->]
+  Questi \alert{primi dati} raccolti da AMS-02 mostrano
+  \begin{enumerate}
   \item fino a \SI{10}{\giga \electronvolt}, una
     \alert{diminuzione della frazione di positroni} all'aumentare dell'energia
   \item un evidente \alert{aumento della frazione di positroni} da
@@ -500,10 +525,9 @@
   \item che il rapporto positroni/elettroni è compatibile con l'ipotesi di
     isotropia
   \end{enumerate}
-  \uncover<+->{Questi dati non mostrano molto di nuovo, sono in gran parte una
-    \alert{conferma di quanto già trovato da PAMELA}
-    (\doi{10.1038/nature07942}), sebbene con una precisione migliore e in un
-    intervallo di energia più grande}
+  AMS-02 \alert{conferma quanto già trovato da PAMELA}
+  (\doi{10.1038/nature07942}), con una maggiore risoluzione, precisione migliore
+  e in un intervallo di energia più grande
 \end{frame}
 
 \begin{frame}
@@ -557,9 +581,10 @@
     \item[\con] sezione d'urto di annichilazione sarebbe relativamente alta
       ($\langle \sigma v\rangle \gtrsim
       \SI{e-24}{\centi\metre\cubed\per\second}$, \arxiv{1304.1184})
-    \item[\con] massa dedotta della particella di materia oscura
+    \item[\con] massa dedotta della particella
       ($\gtrsim \SI{350}{\giga\electronvolt\per\clight\squared}$) è
-      incompatibile con risultati di altri esperimenti (CDMS:
+      incompatibile con risultati di altri esperimenti (XENON100:
+      \SI{55}{\giga\electronvolt\per\clight\squared}, \arxiv{1305.0224}; CDMS:
       \SI{8.6}{\giga\electronvolt\per\clight\squared}, \arxiv{1304.4279}; Fermi:
       $\sim\SI{130}{\giga\electronvolt\per\clight\squared}$,
       \doi{10.1088/1475-7516/2012/08/007}; DAMA, CoGeNT:
