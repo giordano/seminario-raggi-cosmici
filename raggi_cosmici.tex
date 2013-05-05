@@ -21,7 +21,7 @@
 % riconoscerlo...), tutte le particelle con simboli latini devo usarle con cose
 % del tipo `\textup', `\mathsf' (in contesto matematico), i comandi di
 % `particlessymb' sono utili solo per le poche particelle con simboli greci
-\usepackage{booktabs,graphicx,particlessymb,pifont,siunitx}
+\usepackage{appendixnumberbeamer,booktabs,graphicx,particlessymb,pifont,siunitx}
 \usepackage[font=scriptsize,labelformat=empty]{caption}
 
 \graphicspath{{figure/}} % cartella in cui cercare le immagini da caricare
@@ -239,7 +239,7 @@
     \centering
     \includegraphics[width=0.8\columnwidth]{1231160fig1.pdf}
     \caption{Mappa del conteggio di raggi gamma in un campo di
-      $\SI{20}{\degree} \times \SI{20}{\degree}$ attorno a IC 443 (sinistra,
+      $\SI{20}{\degree} \times \SI{20}{\degree}$ attorno a IC~443 (sinistra,
       \SI{1.5}{\kilo \parsec}) e W44 (destra, \SI{2.9}{\kilo \parsec})
       nell'intervallo di energia da \SI{60}{\mega\electronvolt} a
       \SI{2}{\giga\electronvolt}.  Quadrati e croci indicano sorgenti gamma
@@ -280,7 +280,7 @@
     \centering
     \includegraphics[width=0.5\columnwidth]{1231160fig2a}
     \includegraphics[width=0.5\columnwidth]{1231160fig2b}
-    \caption{Spettro dei raggi gamma di IC 433 e W44, misurato da Fermi-LAT.
+    \caption{Spettro dei raggi gamma di IC~433 e W44, misurato da Fermi-LAT.
       Crediti: \textcite{2013Sci...339..807A}}
   \end{figure}
     \begin{table}
@@ -420,16 +420,6 @@
     \caption{Crediti: \textcite{2013PhRvL.110n1102A}}
   \end{figure}
 \end{frame}
-
-% \begin{frame}
-%   \frametitle{AMS-02: i rivelatori (cont.)}
-%   \begin{figure}
-%     \centering
-%     \includegraphics[width=0.9\columnwidth]{ams4}
-%     \caption{Crediti:
-%       \url{http://www.nasa.gov/centers/johnson/engineering/projects/alpha_magnetic_spectrometer/index.html}}
-%   \end{figure}
-% \end{frame}
 
 \begin{frame}
   \frametitle{AMS-02: analisi dei dati}
@@ -603,6 +593,147 @@
   \frametitle{\refname{}}
   \printbibliography{}
 \end{frame}
+
+\appendix{}
+
+\begin{frame}
+  \frametitle{Fermi-LAT: specifiche tecniche}
+  16 torri \SI[parse-numbers=false]{37 \times 37 \times 66}{\centi\metre\cubed}
+  \begin{itemize}
+  \item Anticoincidenza
+    \begin{itemize}
+    \item scintillatore plastico costituito da 89 sezioni individuali
+    \end{itemize}
+  \item Tracker/Convertitore
+    \begin{itemize}
+    \item 16 piani di tracker al silicio
+    \item 18 strati di convertitori al tungsteno
+    \end{itemize}
+  \item Calorimetro
+    \begin{itemize}
+    \item 96 scintillatori CsI, disposti su 8 strati, orientazioni alternate
+    \item profondità verticale totale: 8.6 lunghezze di radiazione
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Fermi-LAT: prestazioni}
+  \begin{itemize}
+  \item campo di vista: \SI{60}{\degree} dall'asse dello strumento, 20\% del
+    cielo
+  \item 68\% raggio di contenimento della PFS a \SI{100}{\mega\electronvolt}:
+    circa \SI{3}{\degree}, a \SI{100}{\giga\electronvolt}: circa
+    \SI{0.04}{\degree}
+  \item area efficace nel centro del campo di vista:
+    \SI{700}{\centi\metre\squared} a \SI{1}{\giga\electronvolt}, diminuisce a
+    energie maggiori
+  \item efficienza di reiezione del fondo di particelle cariche: 99.97\%
+  \item orbita di \SI{96}{\minute}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Fermi-LAT: analisi dei dati (cont.)}
+  \begin{figure}
+    \centering
+    \includegraphics[width=0.5\columnwidth]{1231160figS2}
+    \includegraphics[width=0.5\columnwidth]{1231160figS3}
+    \caption{Distribuzione spettrale dell'energia di IC~443 (sinistra) e W44
+      (destra) in un modello in cui il bremsstrahlung elettronico è il processo
+      radiativo dominante nella banda dei raggi \PGg.  Nella banda radio il
+      processo radiativo dominante è l'emissione di sincrotone.  Parametri
+      utilizzati, \\
+      per IC~443: $s_{1} = 1.72$, $s_{2} = 3.2$,
+      $p_{\textup{br}} = \SI{10}{\giga\electronvolt\per\clight}$,
+      $B = \SI{50}{\micro G}$, $n = \SI{300}{\per\centi\metre\cubed}$,
+      $W_{\textup{e}} = \SI{5e47}{erg}$
+      ($> \SI{1}{\giga\electronvolt\per\clight}$);  \\
+      per W44: $s_{1} = 1.74$, $s_{2} = 3.7$,
+      $p_{\textup{br}} = \SI{10}{\giga\electronvolt\per\clight}$,
+      $B = \SI{90}{\micro G}$, $n = \SI{650}{\per\centi\metre\cubed}$,
+      $W_{\textup{e}} = \SI{6e47}{erg}$
+      ($> \SI{1}{\giga\electronvolt\per\clight}$). \\
+      Crediti: \textcite{2013Sci...339..807A}}
+  \end{figure}
+\end{frame}
+
+\begin{frame}
+  \frametitle{AMS-02: specifiche tecniche e prestazioni}
+  \begin{itemize}
+  \item magneti
+    \begin{itemize}
+    \item magnete permanente: 6000 blocchi in Nd-Fe-B, opera a temperatura
+      ambiente.  Produce un campo di \SI{1.4}{\kilo G} al centro.  Combinato con
+      il tracker, può misurare una rigidità massima di \SI{2}{\tera\volt}
+    \item magnete superconduttore: 14 bobine di materiale superconduttore
+      avvolte su struttura d'alluminio.  Corrente nelle bobine genera campo
+      magnetico di \SI{8.7}{\kilo G} al centro.  Opera a \SI{4}{\kelvin},
+      raffreddato da \SI{2500}{\litre} di elio superfluido a \SI{1.8}{\kelvin}
+    \end{itemize}
+  \item TRD: 5248 tubi proporzionali \SI{6}{\milli\metre} di diametro, lunghezza
+    massima \SI{2}{\metre} disposti in moduli da 16 tubi, riempiti di mistura
+    Xe:CO\ped{2} 90:10.  I 328 moduli sono montati su 20 strati.  Valore
+    stimatore per e$^{\pm}$: $\sim 0.5$, per p: $\sim 1$.  Potere di reiezione
+    al 90\% di efficienza di e$^{\pm}$: $10^{3}-10^{4}$
+  \item TOF: quattro strati, due sopra e due sotto il magnete.  Ogni piano
+    contiene 8--10 contatori a scintillazione, ciascuno dotato di 2--3 PMT.
+    Risoluzione della carica: $\Deltaup Z \approx 0.05$ a $Z = 1$.  Risoluzione
+    temporale media: \SI{160}{\pico\second}, risoluzione totale della velocità:
+    4\% per $\beta \approx 1$ e $Z = 1$.  Risoluzioni massime:
+    $\Deltaup t/t \sim \SI{50}{\pico\second}$ e $\Deltaup \beta/\beta \sim 1\%$
+    per $Z > 5$
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{AMS-02: specifiche tecniche e prestazioni (cont.)}
+  \begin{itemize}
+  \item Tracker al silicio: 192 unità, ciascuna contenente sensori al
+    silicio.  Risoluzione spaziale migliore di \SI{10}{\micro\metre},
+    risoluzione della carica: $\Deltaup Z \approx 0.06$ a $Z = 1$
+  \item RICH: due radiatori dielettrici non sovrapposti, uno con
+    $n = 1.33 \implies \beta > 0.75$, circondato da un altro radiatore con
+    $n = 1.05 \implies \beta > 0.95$.  I fotoni Čerenkov sono rivelati da un
+    array di \num{10880} sensori con una granularità spaziale efficace di
+    \SI[parse-numbers=false]{8.5 \times 8.5}{\milli\metre\squared} a una
+    distanza di espansione di \SI{45}{\centi\metre}.  Risoluzione della velocità
+    $\Deltaup \beta/\beta \sim 1/1000$
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{AMS-02: specifiche tecniche e prestazioni (cont.)}
+  \begin{itemize}
+  \item ECAL: pancake di 9 super-strati per un'area attiva di
+    \SI[parse-numbers=false]{648 \times 648}{\milli\metre\squared} e uno
+    spessore di \SI{166.5}{\milli\metre} (17 lunghezze di radiazione).  Ogni
+    superstrato è spesso \SI{18.5}{\milli\metre} ed è fatto di 11 lamine
+    scanalate di piombo spesse \SI{1}{\milli\metre} l'una intercalati con strati
+    di fibre a scintillazione da \SI{1}{\milli\metre} di diametro, incollate
+    insieme da una resina epossidica.  La capacità di imaging del rivelatore si
+    ottiene sovrapponendo i superstrati alternati alle fibre parallelamente
+    all'asse $x$ (4 strati) e all'asse $y$ (5 strati).  Il pancake ha una
+    densità media di \SI{6.9}{\gram\per\centi\metre\cubed} e una massa totale di
+    \SI{496}{\kilogram}.  Risoluzione energetica
+    $\sigma(E)/E = \sqrt{(0.104)^{2}/(E/\si{\giga\electronvolt}) + (0.014)^{2}}$
+  \item ACC: circonda il tracker con 16 pannelli curvi a scintillazione
+    lunghi \SI{0.8}{\metre} per rigettare particelle con grande angolo di
+    incidenza.  Efficienza: \num{0.99999}
+  \end{itemize}
+  Separazione e$^{\pm}$/p: $10^{6}$ a \SI{400}{\giga\electronvolt\per\clight}
+\end{frame}
+
+\begin{frame}
+  \frametitle{AMS-02: i rivelatori (cont.)}
+  \begin{figure}
+    \centering
+    \includegraphics[width=0.9\columnwidth]{ams4}
+    \caption{Crediti:
+      \url{http://www.nasa.gov/centers/johnson/engineering/projects/alpha_magnetic_spectrometer/index.html}}
+  \end{figure}
+\end{frame}
+
 \end{document}
 
 %%% Local Variables:
